@@ -5,7 +5,8 @@
   </div>
 </template>
 
-<script>
+<!-- API Option: oK -->
+<!-- script>
 export default {
   props: {
     name: {
@@ -14,6 +15,16 @@ export default {
     }
   }
 }
+</script -->
+
+<!-- API Composition -->
+<script setup>
+defineProps({
+  name: {
+    type: String,
+    default: 'World'
+  }
+})
 </script>
 
 <style>
