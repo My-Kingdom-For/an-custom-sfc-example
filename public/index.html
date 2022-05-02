@@ -16,6 +16,25 @@
     <my-custom-vue-component></my-custom-vue-component>
     <my-second-element></my-second-element>
 
-    <!-- built files will be auto injected -->
+    <label>Change name:</label>
+    <button type="button" onclick="say(this.innerText)">Kollyn</button>
+    <button type="button" onclick="say(this.innerText)">Rufus</button>
+    <button type="button" onclick="say(this.innerText)">Ezeckhiel</button>
+    <script>
+      // vanilla js:
+      let element = null
+      function getElement() {
+        if (element === null) {
+          element = document.createElement('my-second-element')
+          document.body.append(element)
+        }
+
+        return element
+      }
+
+      function say(name) {
+        getElement().setAttribute('name', name)
+      }
+    </script>
   </body>
 </html>
