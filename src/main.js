@@ -1,4 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { defineCustomElement } from 'vue'
+import MyCustomVueComponent from '@/components/MyCustomVueComponent.ce.vue'
 
-createApp(App).mount('#app')
+const MyElement = defineCustomElement(MyCustomVueComponent)
+
+window.customElements.define('my-custom-vue-component', MyElement)
