@@ -12,7 +12,6 @@ function importAll (resolve) {
     const customComponent = defineCustomElement(vueComponent)
     const kebabName = kebablize(key.replace(/^\.\/|\.ce\.vue$/g, ''))
 
-    console.log(kebabName, customComponent)
     window.customElements.define(kebabName, customComponent)
     return key
   })
