@@ -1,7 +1,7 @@
 <template>
   <header>
     <p>nested :</p>
-    <my-second-element />
+    <my-second-element name="Mom" />
     <hr />
   </header>
 </template>
