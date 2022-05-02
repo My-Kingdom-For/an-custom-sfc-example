@@ -1,3 +1,7 @@
 <template>
-  <p>Hello World (from shadow) !</p>
+  <header>
+    <p>neted :</p>
+    <my-second-element />
+    <hr />
+  </header>
 </template>

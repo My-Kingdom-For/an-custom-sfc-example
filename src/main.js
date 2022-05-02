@@ -1,6 +1,21 @@
 import { defineCustomElement } from 'vue'
-import MyCustomVueComponent from '@/components/MyCustomVueComponent.ce.vue'
 
-const MyElement = defineCustomElement(MyCustomVueComponent)
+function kebablize (str) {
+  return String(str)
+    .replace(/[a-z][A-Z]/g, (match) => `${match[0]}-${match[1]}`)
+    .toLowerCase()
+}
 
-window.customElements.define('my-custom-vue-component', MyElement)
+function importAll (resolve) {
+  resolve.keys().forEach((key) => {
+    const vueComponent = resolve(key).default
+    const customComponent = defineCustomElement(vueComponent)
+    const kebabName = kebablize(key.replace(/^\.\/|\.ce\.vue$/g, ''))
+
+    console.log(kebabName, customComponent)
+    window.customElements.define(kebabName, customComponent)
+    return key
+  })
+}
+
+importAll(require.context('./components/', false, /\.ce\.vue$/))
